@@ -16,7 +16,6 @@ Placetobe Button Element
 
         --placetobe-button-base: {
           box-sizing: border-box;
-          padding: 13px 18px;
           text-align: center;
           display: inline-block;
           cursor: pointer;
@@ -31,12 +30,10 @@ Placetobe Button Element
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
-          @apply(--placetobe-font-heading4);
           color: var(--placetobe-button-tint-color, var(--placetobe-color-darkblue));
         }
 
         --placetobe-button: {
-          height: 54px;
           @apply(--placetobe-button-base);
           border-radius: 5px;
           background-color: var(--placetobe-button-color, var(--placetobe-color-taupe));
@@ -76,6 +73,22 @@ Placetobe Button Element
 
       :host[flat] button:hover {
         @apply(--placetobe-button-flat-raised);
+      }
+
+      @media(max-width: 600px) {
+        :host button {
+          @apply(--placetobe-font-heading4-small);
+          padding: 11px 12px;
+          height: 44px;
+        }
+      }
+
+      @media(min-width: 600px) {
+        :host button {
+          @apply(--placetobe-font-heading4-large);
+          padding: 13px 18px;
+          height: 54px;
+        }
       }
 
     </style>
