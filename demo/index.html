@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <title>placetobe-button demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../placetobe-button.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .yellow {
+        --placetobe-button-color: var(--placetobe-color-yellow);
+      }
+      .red {
+        --placetobe-button-color: var(--placetobe-color-red);
+      }
+      .darkblue {
+        --placetobe-button-color: var(--placetobe-color-darkblue);
+        --placetobe-button-hover-color: var(--placetobe-color-yellow);
+        --placetobe-button-tint-color: white;
+        --placetobe-button-tint-hover-color: var(--placetobe-color-red);
+      }
+    </style>
+  </head>
+  <body>
+
+      <h3>Basic placetobe-button Demo</h3>
+      
+      <demo-snippet>
+        <template>
+          <placetobe-button>Regular</placetobe-button>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <placetobe-button class="yellow">Yellow</placetobe-button>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <placetobe-button class="red">Red</placetobe-button>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <placetobe-button class="darkblue">Dark Blue</placetobe-button>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <placetobe-button flat>Flat</placetobe-button>
+        </template>
+      </demo-snippet>
+
+    </div>
+
+  </body>
+</html>

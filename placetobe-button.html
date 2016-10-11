@@ -1,0 +1,102 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../placetobe-styles/placetobe-styles.html">
+
+<!--
+`placetobe-button`
+Placetobe Button Element
+
+@demo demo/index.html 
+-->
+
+<dom-module id="placetobe-button">
+  <template>
+    <style>
+
+      :host {
+
+        --placetobe-button-base: {
+          box-sizing: border-box;
+          padding: 13px 18px;
+          text-align: center;
+          display: inline-block;
+          cursor: pointer;
+          text-decoration: none;
+          white-space: nowrap;
+          outline: none;
+          border: 0;
+          appearance: none;
+          -webkit-appearance: none;
+          -webkit-tap-highlight-color: transparent;
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          @apply(--placetobe-font-heading4);
+          color: var(--placetobe-button-tint-color, var(--placetobe-color-darkblue));
+        }
+
+        --placetobe-button: {
+          height: 54px;
+          @apply(--placetobe-button-base);
+          border-radius: 5px;
+          background-color: var(--placetobe-button-color, var(--placetobe-color-taupe));
+          box-shadow: 0 3px 0 var(--placetobe-button-tint-color, var(--placetobe-color-darkblue));
+        }
+
+        --placetobe-button-raised: {
+          background-color: var(--placetobe-button-hover-color, var(--placetobe-color-gray));
+          color: var(--placetobe-button-tint-hover-color, var(--placetobe-button-tint-color));
+          box-shadow: 0 3px 0 var(--placetobe-button-tint-hover-color, var(--placetobe-button-tint-color));
+        }
+
+        --placetobe-button-flat: {
+          @apply(--placetobe-button-base);
+          padding: 0;
+          background-color: transparent;
+          box-shadow: none;
+        }
+
+        --placetobe-button-flat-raised: {
+          color: var(--placetobe-button-tint-hover-color, var(--placetobe-color-red));
+        }
+
+      }
+
+      :host:not([flat]) button {
+        @apply(--placetobe-button);
+      }
+
+      :host:not([flat]) button:hover {
+        @apply(--placetobe-button-raised);
+      }
+
+      :host[flat] button {
+        @apply(--placetobe-button-flat);
+      }
+
+      :host[flat] button:hover {
+        @apply(--placetobe-button-flat-raised);
+      }
+
+    </style>
+    <button><content></content></button>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'placetobe-button',
+
+      properties: {
+
+        flat: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        }
+
+      }
+
+    });
+  </script>
+</dom-module>
