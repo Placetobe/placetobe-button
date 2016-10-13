@@ -12,46 +12,72 @@ Placetobe Button Element
   <template>
     <style>
 
+      :host {
+
+        --default-button-styling: {
+          color: var(--placetobe-button-tint-color);
+          background-color: var(--placetobe-button-color);
+          box-shadow: 0 3px 0 var(--placetobe-button-tint-color);        
+        }
+
+        --default-button-hover-styling: {
+          color: var(--placetobe-button-tint-hover-color, white);
+          background-color: var(--placetobe-button-hover-color, var(--placetobe-color-darkblue));
+          box-shadow: 0 3px 0 var(--placetobe-button-tint-hover-color, white);
+        }
+
+        --link-button-styling: {
+          color: var(--placetobe-button-tint-color);
+          background-color: var(--placetobe-button-color);
+        }
+
+        --link-button-hover-styling: {
+          color: var(--placetobe-button-tint-hover-color);
+          background-color: var(--placetobe-button-hover-color);
+        }
+
+      }
+
       :host:not([link]) button {
-        @apply(--placetobe-button-default);
-        color: var(--placetobe-button-tint-color);
-        background-color: var(--placetobe-button-color);
-        box-shadow: 0 3px 0 var(--placetobe-button-tint-color);
+        @apply(--placetobe-default-button-small);
+        @apply(--default-button-styling);
       }
 
       :host:not([link]) button:hover {
-        @apply(--placetobe-button-default-pressed);
-        color: var(--placetobe-button-tint-hover-color);
-        background-color: var(--placetobe-button-hover-color);
-        box-shadow: 0 3px 0 var(--placetobe-button-tint-hover-color);
+        @apply(--default-button-hover-styling);
       }
 
       :host[link] button {
-        @apply(--placetobe-button-link);
-        color: var(--placetobe-button-tint-color);
-        background-color: var(--placetobe-button-color);
+        @apply(--placetobe-link-button-small);
+        @apply(--link-button-styling);
       }
 
       :host[link] button:hover {
-        @apply(--placetobe-button-link);
-        color: var(--placetobe-button-tint-hover-color);
-        background-color: var(--placetobe-button-hover-color);
-      }
-
-      @media(max-width: 600px) {
-        :host button {
-          @apply(--placetobe-font-heading4-small);
-          padding: 11px 12px;
-          height: 44px;
-        }
+        @apply(--placetobe-link-button);
+        @apply(--link-button-hover-styling);
       }
 
       @media(min-width: 600px) {
-        :host button {
-          @apply(--placetobe-font-heading4-large);
-          padding: 13px 18px;
-          height: 54px;
+        
+        :host:not([link]) button {
+          @apply(--placetobe-default-button-large);
+          @apply(--default-button-styling);
         }
+
+        :host:not([link]) button:hover {
+          @apply(--default-button-hover-styling);
+        }
+
+        :host[link] button {
+          @apply(--placetobe-link-button-large);
+          @apply(--link-button-styling);
+        }
+
+        :host[link] button:hover {
+          @apply(--placetobe-link-button);
+          @apply(--link-button-hover-styling);
+        }
+
       }
 
     </style>
