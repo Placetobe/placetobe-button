@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
+<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 
 <!--
 `placetobe-button`
@@ -13,7 +14,6 @@ Placetobe Button Element
     <style>
 
       :host {
-
         --default-button-styling: {
           color: var(--placetobe-button-tint-color);
           background-color: var(--placetobe-button-color);
@@ -35,11 +35,11 @@ Placetobe Button Element
           color: var(--placetobe-button-tint-hover-color);
           background-color: var(--placetobe-button-hover-color);
         }
-
+        
       }
 
       :host:not([link]) button {
-        @apply(--placetobe-default-button-small);
+        @apply(--placetobe-default-button);
         @apply(--default-button-styling);
       }
 
@@ -47,37 +47,14 @@ Placetobe Button Element
         @apply(--default-button-hover-styling);
       }
 
+
       :host[link] button {
-        @apply(--placetobe-link-button-small);
+        @apply(--placetobe-link-button);
         @apply(--link-button-styling);
       }
 
       :host[link] button:hover {
-        @apply(--placetobe-link-button);
         @apply(--link-button-hover-styling);
-      }
-
-      @media(min-width: 600px) {
-        
-        :host:not([link]) button {
-          @apply(--placetobe-default-button-large);
-          @apply(--default-button-styling);
-        }
-
-        :host:not([link]) button:hover {
-          @apply(--default-button-hover-styling);
-        }
-
-        :host[link] button {
-          @apply(--placetobe-link-button-large);
-          @apply(--link-button-styling);
-        }
-
-        :host[link] button:hover {
-          @apply(--placetobe-link-button);
-          @apply(--link-button-hover-styling);
-        }
-
       }
 
     </style>
@@ -88,6 +65,7 @@ Placetobe Button Element
     Polymer({
 
       is: 'placetobe-button',
+      behaviors: [PlacetobeStylesBehavior],
 
       properties: {
 

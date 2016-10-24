@@ -4,7 +4,8 @@
   "main": "placetobe-button.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.6.0",
-    "placetobe-styles": "Placetobe/placetobe-styles"
+    "placetobe-styles": "Placetobe/placetobe-styles",
+    "placetobe-behaviors": "Placetobe/placetobe-behaviors"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
