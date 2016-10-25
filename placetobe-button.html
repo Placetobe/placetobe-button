@@ -38,22 +38,22 @@ Placetobe Button Element
         
       }
 
-      :host:not([link]) button {
+      :host(:not([link])) button {
         @apply(--placetobe-default-button);
         @apply(--default-button-styling);
       }
 
-      :host:not([link]) button:hover {
+      :host(:not([link])) button:hover {
         @apply(--default-button-hover-styling);
       }
 
 
-      :host[link] button {
+      :host([link]) button {
         @apply(--placetobe-link-button);
         @apply(--link-button-styling);
       }
 
-      :host[link] button:hover {
+      :host([link]) button:hover {
         @apply(--link-button-hover-styling);
       }
 
