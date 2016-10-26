@@ -49,7 +49,6 @@ Placetobe Button Element
         @apply(--default-button-hover-styling);
       }
 
-
       :host([link]) button,
       :host([link]) a {
         @apply(--placetobe-link-button);
@@ -59,6 +58,12 @@ Placetobe Button Element
       :host([link]) button:hover,
       :host([link]) a:hover {
         @apply(--link-button-hover-styling);
+        border: 1px solid red;
+      }
+
+      :host > button ::slotted(*),
+      :host > a ::slotted(*) {
+        @apply(--placetobe-font-body-serif-bold);
       }
 
     </style>
