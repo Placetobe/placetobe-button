@@ -38,27 +38,39 @@ Placetobe Button Element
         
       }
 
-      :host(:not([link])) button {
+      :host(:not([link])) button,
+      :host(:not([link])) a {
         @apply(--placetobe-default-button);
         @apply(--default-button-styling);
       }
 
-      :host(:not([link])) button:hover {
+      :host(:not([link])) button:hover,
+      :host(:not([link])) a:hover {
         @apply(--default-button-hover-styling);
       }
 
 
-      :host([link]) button {
+      :host([link]) button,
+      :host([link]) a {
         @apply(--placetobe-link-button);
         @apply(--link-button-styling);
       }
 
-      :host([link]) button:hover {
+      :host([link]) button:hover,
+      :host([link]) a:hover {
         @apply(--link-button-hover-styling);
       }
 
     </style>
-    <button><content></content></button>
+
+    <template is="dom-if" if="[[!isAnchor]]">
+      <button title$="[[title]]"><slot></slot></button>
+    </template>
+    
+    <template is="dom-if" if="[[isAnchor]]">
+      <a title$="[[title]]" href$="[[href]]" target$="[[target]]"><slot></slot></a>
+    </template>
+    
   </template>
 
   <script>
@@ -73,8 +85,35 @@ Placetobe Button Element
           type: Boolean,
           value: false,
           reflectToAttribute: true
+        },
+
+        href: {
+          type: String,
+          value: null,
+          reflectToAttribute: true          
+        },
+
+        title: {
+          type: String,
+          value: null,
+          reflectToAttribute: true          
+        },
+
+        target: {
+          type: String,
+          value: null,
+          reflectToAttribute: true          
+        },
+
+        isAnchor: {
+          type: Boolean,
+          computed: '_computeIsAnchor(href)'
         }
 
+      },
+
+      _computeIsAnchor: function(href) {
+        return (!!href);
       }
 
     });
