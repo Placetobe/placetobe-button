@@ -15,18 +15,21 @@ Placetobe Button Element
 
       :host {
         --default-button-styling: {
+          @apply(--placetobe-border-box);
           color: var(--placetobe-button-tint-color);
           background-color: var(--placetobe-button-color);
-          box-shadow: 0 3px 0 var(--placetobe-button-tint-color);      
+          box-shadow: 0 3px 0 var(--placetobe-button-tint-color);
         }
 
         --default-button-hover-styling: {
+          @apply(--placetobe-border-box);
           color: var(--placetobe-button-tint-hover-color, white);
           background-color: var(--placetobe-button-hover-color, var(--placetobe-color-darkblue));
           box-shadow: 0 3px 0 var(--placetobe-button-tint-hover-color, white);
         }
 
         --link-button-styling: {
+          @apply(--placetobe-border-box);
           color: var(--placetobe-button-tint-color);
           background-color: var(--placetobe-button-color);
         }
