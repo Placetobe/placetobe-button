@@ -16,7 +16,6 @@ Placetobe Button Element
       :host {
         --default-button-styling: {
           @apply(--placetobe-border-box);
-          @apply(--placetobe-flex-layout--horizontal);
           color: var(--placetobe-button-tint-color);
           background-color: var(--placetobe-button-color);
           box-shadow: 0 3px 0 var(--placetobe-button-tint-color);
@@ -53,6 +52,7 @@ Placetobe Button Element
 
       :host(:not([link])) button,
       :host(:not([link])) a {
+        @apply(--placetobe-flex-layout--horizontal);
         @apply(--placetobe-default-button);
         @apply(--default-button-styling);
       }
