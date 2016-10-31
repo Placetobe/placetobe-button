@@ -16,6 +16,7 @@ Placetobe Button Element
       :host {
         --default-button-styling: {
           @apply(--placetobe-border-box);
+          @apply(--placetobe-flex-layout--vertical);
           color: var(--placetobe-button-tint-color);
           background-color: var(--placetobe-button-color);
           box-shadow: 0 3px 0 var(--placetobe-button-tint-color);
@@ -75,7 +76,7 @@ Placetobe Button Element
       :host > button ::slotted(*),
       :host > a ::slotted(*) {
         @apply(--placetobe-font-body-serif-bold);
-        padding: 3px 0;
+        padding: 4px 0;
       }
 
     </style>
