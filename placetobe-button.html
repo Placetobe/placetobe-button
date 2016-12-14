@@ -52,6 +52,7 @@ Placetobe Button Element
 
       :host(:not([link])) button,
       :host(:not([link])) a {
+        @apply(--placetobe-flex-layout--horizontal);
         @apply(--placetobe-default-button);
         @apply(--default-button-styling);
       }
@@ -74,7 +75,9 @@ Placetobe Button Element
 
       :host > button ::slotted(*),
       :host > a ::slotted(*) {
+        @apply(--placetobe-flex-layout--horizontal);
         @apply(--placetobe-font-body-serif-bold);
+        padding: 4px 0;
       }
 
     </style>
