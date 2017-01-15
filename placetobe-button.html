@@ -82,11 +82,11 @@ Placetobe Button Element
 
     </style>
 
-    <template is="dom-if" if="[[!isAnchor]]">
+    <template is="dom-if" if="[[!isAnchor]]" restamp="true">
       <button title$="[[title]]" disabled$="[[disabled]]"><slot></slot></button>
     </template>
     
-    <template is="dom-if" if="[[isAnchor]]">
+    <template is="dom-if" if="[[isAnchor]]" restamp="true">
       <a title$="[[title]]" href$="[[href]]" target$="[[target]]"><slot></slot></a>
     </template>
     
