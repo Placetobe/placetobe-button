@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
+<link rel="import" href="../paper-spinner/paper-spinner-lite.html">
 <link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 
 <!--
@@ -19,6 +20,7 @@ Placetobe Button Element
           color: var(--placetobe-button-tint-color);
           background-color: var(--placetobe-button-color);
           box-shadow: 0 3px 0 var(--placetobe-button-tint-color);
+          --paper-spinner-stroke-width: 2px;
         }
 
         --default-button-hover-styling: {
@@ -46,7 +48,12 @@ Placetobe Button Element
         
       }
 
-      :host([disabled]) {
+      :host paper-spinner-lite {
+        --paper-spinner-color: var(--placetobe-button-tint-color, var(--placetobe-color-darkblue));
+      }
+
+      :host([disabled]),
+      :host([waiting]) {
         @apply(--default-button-disabled-styling);
       }
 
@@ -80,14 +87,24 @@ Placetobe Button Element
         padding: 4px 0;
       }
 
+      :host paper-spinner {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+      }
+
     </style>
 
     <template is="dom-if" if="[[!isAnchor]]" restamp="true">
-      <button title$="[[title]]" disabled$="[[disabled]]"><slot></slot></button>
+      <button title$="[[title]]" disabled$="[[disabled]]">
+      <span hidden$="[[!waiting]]"><paper-spinner-lite active></paper-spinner-lite></span>
+      <span hidden$="[[waiting]]"><slot></slot></span>
+      </button>
     </template>
     
     <template is="dom-if" if="[[isAnchor]]" restamp="true">
-      <a title$="[[title]]" href$="[[href]]" target$="[[target]]"><slot></slot></a>
+      <span hidden$="[[!waiting]]"><paper-spinner-lite active></paper-spinner-lite></span>
+      <a hidden$="[[waiting]]" title$="[[title]]" href$="[[href]]" target$="[[target]]"><slot></slot></a>
     </template>
     
   </template>
@@ -132,7 +149,13 @@ Placetobe Button Element
         disabled: {
           type: Boolean,
           value: false
-        }
+        },
+
+        waiting: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true          
+        },
 
       },
 
